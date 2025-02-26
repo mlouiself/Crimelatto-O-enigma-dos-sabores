@@ -92,6 +92,17 @@ def investigar_cena_crime():
     print("\n❗ O perigo está mais perto do que você imagina. Cada respiração que você dá parece mais pesada, cada pensamento mais sombrio. Você sabe que está perto, mas está começando a questionar se quer mesmo saber a verdade. Algumas coisas, talvez, devam ficar enterradas no gelo. Você continua... ou se afasta do abismo que está prestes a engolir tudo?")
     time.sleep(4)
 
+def acusar(suspeito, culpado):
+    if suspeito == culpado:
+        return (f"💥 O ar parece congelar por um instante. Você aponta para {suspeito}, e uma sensação pesada toma conta de você, como se o tempo parasse. "
+                f"Uma sombra se afasta das paredes e a verdade, até então escondida nas sombras, se revela. "
+                f"Com um suspiro final, você sente um arrepio percorrer sua espinha. Você acertou. {suspeito} era o culpado o tempo todo... e a justiça foi feita. "
+                f"Mas será que a paz será alcançada? Ou isso é apenas o começo de um novo mistério? 🕯️")
+    else:
+        return (f"❌ O ar se torna denso, e um calafrio percorre sua coluna. Você acusa {suspeito}, mas ao olhar nos olhos do verdadeiro culpado, "
+                f"uma estranha sensação de desconforto toma conta de você. Algo não está certo. O silêncio da sala cresce, como se as paredes estivessem "
+                f"rindo de sua acusação falha. {suspeito} não era o culpado... Ou será que ele ainda guarda segredos mais profundos? O jogo continua... 🕳️")
+
 if __name__ == "__main__":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
