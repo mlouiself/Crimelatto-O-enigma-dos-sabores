@@ -64,4 +64,3 @@ if __name__ == "__main__":
     exibir_titulo()
     introducao()
     iniciar_jogo()
-
