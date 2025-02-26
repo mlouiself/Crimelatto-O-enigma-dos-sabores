@@ -3,9 +3,32 @@ import time
 import random
 
 def carregar_sorvetes(caminho_csv):
+    sorvetes = []
     with open(caminho_csv, mode='r', encoding='utf-8') as arquivo:
         leitor_csv = csv.reader(arquivo, delimiter=';')
         next(leitor_csv)
+        for linha in leitor_csv:
+            sabor_sorvete = linha[0]
+            nome_sorvete = linha[1]
+            aparencia = linha[2]
+            consciencia = linha[3]
+            quantidade_lustro = linha[4]
+            personalidade = linha[5]
+            personalidade_oculta = linha[6]
+            nivel_derretimento = linha[7]
+            freezer = linha[8]
+            sorvetes.append({
+                'sabor_sorvete': sabor_sorvete,
+                'nome_sorvete': nome_sorvete,
+                'aparencia': aparencia,
+                'consciencia': consciencia,
+                'quantidade_lustro': quantidade_lustro,
+                'personalidade': personalidade,
+                'personalidade_oculta': personalidade_oculta,
+                'nivel_derretimento': nivel_derretimento,
+                'freezer': freezer
+            })
+    return sorvetes
 
 def mostrar_pistas():
     pistas = [
@@ -19,7 +42,7 @@ def mostrar_pistas():
         print(f"- {pista}")
         time.sleep(3)
 
-def interrogar_suspeitos(suspeitos):
+def interrogar_suspeitos(sorvetes):
     respostas = {
         "Moranguinho": "🍓 Moranguinho: \"Eu não faria mal a ninguém! Estava no fundo do freezer, como sempre... Por que todos desconfiam de mim? Talvez seja o medo de ser um sabor tão comum...\" 😰",
         "Bauni": "🍦 Bauni: \"Tão suave quanto meu gosto, sempre fiquei fora de confusão. Por que alguém suspeitaria de mim? Tudo que eu queria era continuar vivendo em paz, mas agora... não sei mais o que pensar.\" 😢",
@@ -31,14 +54,14 @@ def interrogar_suspeitos(suspeitos):
     }
 
     print("\n👀 Você começa a interrogar os suspeitos. Cada um tem algo a dizer, mas será que todos estão dizendo a verdade?")
-    for suspeito in suspeitos:
-        print(f"\n🍨 {suspeito} responde:")
-        print(respostas[suspeito])
+    for sorvete in sorvetes:
+        nome = sorvete['nome_sorvete']
+        print(f"\n🍨 {nome} responde:")
+        print(respostas[nome])
         time.sleep(3)
 
 if __name__ == "__main__":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
     mostrar_pistas()
-    suspeitos = ["Moranguinho", "Bauni", "Nocci", "Limone", "Pistacho", "Caramella", "Mentolado"]
-    interrogar_suspeitos(suspeitos)
+    interrogar_suspeitos(sorvetes)
