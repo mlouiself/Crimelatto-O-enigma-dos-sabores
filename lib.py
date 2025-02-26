@@ -28,5 +28,5 @@ def carregar_sorvetes(caminho_csv):
             print("-" * 30)
 
 if __name__ == "__main__":
-    caminho_csv = "dados.csv"
+    caminho_csv = "sorvetes.csv"
     carregar_sorvetes(caminho_csv)
