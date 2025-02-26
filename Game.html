@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimelatto: O Enigma dos Sabores</title>
+    <link rel="stylesheet" href="/css/Game.css">
+</head>
+<body>
+    <header>
+        <h1>Crimelatto: O Enigma dos Sabores</h1>
+    </header>
+
+    <main>
+        <div class="dialog-box">
+            <p class="text" id="dialog-text"></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Crimelatto. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="/Sobre.html">Sobre</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    const text = "Oi! Essa é uma caixa de diálogo estilo Undertale.";
+    let i = 0;
+    const speed = 50;
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("dialog-text").textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = typeWriter;
+</script>

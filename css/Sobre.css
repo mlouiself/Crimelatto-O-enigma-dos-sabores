@@ -1,0 +1,150 @@
+/* Estilos Gerais */ 
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #3E1F47;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Estilo do conteudo */
+main {
+    background-image: url(/img/Background_index.html.jpg);
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.welcome-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+    /* Contêiner principal da página */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+    /* Estilo para cada seção de conteúdo */
+.about-section {
+    margin-bottom: 30px;
+}
+
+.about-section h2 {
+    color: #fff;
+    font-size: 1.8em;
+    border-bottom: 2px solid #3E1F47;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+    /* Estilo para listas */
+.about-section ul {
+    margin-left: 25px;
+    line-height: 1.6;
+}
+
+.about-section li {
+    margin-bottom: 8px;
+}
+
+    /* Estilo para a seção de membros da equipe */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.team-member {
+    width: 45%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(62, 31, 71, 0.3);
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    background-color: rgba(62, 31, 71, 0.5);
+}
+
+.team-member h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+    /* Estilo para os botões de navegação */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.navigation-buttons button {
+    background-color: #3E1F47;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.navigation-buttons button:hover {
+    background-color: #2B2B2B;
+}
+
+/* Estilo para o rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2B2B2B;
+    color: #fff;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #A7D3F2;
+}
