@@ -1,62 +1,32 @@
-def consciencia():
-    pass
+import csv
 
-def quantidade_lustro():
-    pass
+def carregar_sorvetes(caminho_csv):
+    with open(caminho_csv, mode='r', encoding='utf-8') as arquivo:
+        leitor_csv = csv.reader(arquivo, delimiter=';')
+        next(leitor_csv)
 
-def personalidade_oculta():
-    pass
+        for linha in leitor_csv:
+            sabor = linha[0]
+            nome = linha[1]
+            aparencia = linha[2]
+            consciencia = linha[3]
+            quantidade_lustro = linha[4]
+            personalidade = linha[5]
+            personalidade_oculta = linha[6]
+            nivel_derretimento = linha[7]
+            freezer = linha[8]
 
-def derretimento():
-    pass
+            print(f"Sabor: {sabor}")
+            print(f"Nome: {nome}")
+            print(f"Aparência: {aparencia}")
+            print(f"Consciência: {consciencia}")
+            print(f"Quantidade de Lustro: {quantidade_lustro}")
+            print(f"Personalidade: {personalidade}")
+            print(f"Personalidade Oculta: {personalidade_oculta}")
+            print(f"Nível de Derretimento: {nivel_derretimento}")
+            print(f"Freezer: {freezer}")
+            print("-" * 30)
 
-def investigar_cena():
-    pass
-
-def interrogar():
-    pass
-
-
-def exibir_menu():
-    print("🧊🍨✨ ~ Bem-vindo à Sorveteria Doce Latto ~ ✨🍨🧊")
-    print("💀 Um crime gelado à espreita... desvendará você esse enigma sombrio? 💀")
-    print("❄️❄️❄️==========================================❄️❄️❄️")
-    print("1️ 🔍 *INVESTIGAR A CENA DO CRIME*: Mergulhe nas sombras e procure pistas.")
-    print("2️ 🗣️ *INTERROGAR OS SUSPEITOS*: Cada sorvete tem uma história... e segredos.")
-    print("3️ 🍦 *EXAMINAR O FREEZER*: O estoque guarda segredos. Escolha com cuidado.")
-    print("4️ 🧭 *SEGUIR UMA PISTA SOMBRIA*: O enigma se adensa. Algo te chama...")
-    print("5️ 🚪 *DEIXAR A SORVETERIA*: Fugir ou voltar para resolver? A escolha é sua.")
-    print("❄️❄️❄️==========================================❄️❄️❄️")
-
-def iniciar_jogo():
-    while True:
-        exibir_menu()
-        escolha = input("🕵️‍♂️ O que você deseja fazer, Detetive? ")
-
-        if escolha == '1':
-            print("🔦 Você acende sua lanterna e a cena do crime surge em seu caminho... Pegadas congeladas levam ao inesperado.")
-            print("💀 O corpo do Sr. Gelatelli, o excêntrico dono da sorveteria, está caído ao lado de um saco de Lustro derramado.")
-            print("😱 Seu rosto congelado em uma expressão de choque e medo... Ele viu o assassino antes do fim.")
-            print("❄️ Manchas de derretimento no chão, um vidro rachado no freezer, e uma colher metálica torta sugerem que algo frio e mortal passou por ali.")
-        elif escolha == '2':
-            print("🗣️ As vozes dos sorvetes ecoam no freezer... Quem será o traidor? Quem fala a verdade?")
-            nome_sorvete = input("🍨 Qual sorvete você deseja interrogar? ")
-            exibir_sorvete(nome_sorvete)
-        elif escolha == '3':
-            print("🍦❄️ O freezer range ao abrir... Um sopro frio te arrepia a espinha. Algo ou alguém esteve aqui.")
-            nome_sorvete = input("📦 Qual sorvete do estoque você quer investigar? ")
-            exibir_sorvete(nome_sorvete)
-        elif escolha == '4':
-            print("🧭 O vento gelado sussurra segredos e pistas ao seu redor... Você segue o chamado da verdade.")
-        elif escolha == '5':
-            print("🚪 O som da porta da sorveteria fechando atrás de você é quase silencioso... Mas o enigma permanece.")
-            break
-        else:
-            print("🌀 Hmm... Opção inválida. O frio confunde sua mente. Tente novamente.")
-
-iniciar_jogo()
-
-
-
-
-
+if __name__ == "__main__":
+    caminho_csv = "dados.csv"
+    carregar_sorvetes(caminho_csv)
