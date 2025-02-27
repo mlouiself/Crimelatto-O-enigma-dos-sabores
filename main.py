@@ -65,7 +65,7 @@ def iniciar_jogo(sorvetes):
         else:
             print("\n❌ Opção inválida! Escolha um número entre 1 e 5. ❌")
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
 
