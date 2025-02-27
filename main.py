@@ -1,6 +1,6 @@
 import time
 import random
-from lib import carregar_sorvetes, investigar_cena_crime, mostrar_pistas, interrogar_suspeitos, acusar
+from lib import valores_perigosos, carregar_sorvetes, investigar_cena_crime, mostrar_pistas, interrogar_suspeitos, acusar
 
 def exibir_titulo():
     print("\n" + "-" * 50)
@@ -37,8 +37,9 @@ def iniciar_jogo(sorvetes):
         print("1. 🧩 Investigar a cena do crime")
         print("2. 🍦 Interrogar os sorvetes suspeitos")
         print("3. 📝 Analisar as pistas coletadas")
-        print("4. ⚖️  Acusar um suspeito")
-        print("5. 🚪 Sair do jogo")
+        print("4. 💣 Analisar tabela de valores perigosos")
+        print("5. ⚖️  Acusar um suspeito")
+        print("6. 🚪 Sair do jogo")
 
         escolha = input("\nDigite sua escolha: ")
 
@@ -52,11 +53,14 @@ def iniciar_jogo(sorvetes):
             print("\n🔍 O caos está ao seu redor, mas se souber conectar as pistas certas, a verdade poderá se revelar... 🔍")
             mostrar_pistas()
         elif escolha == "4":
+            print("⚠️ Atenção! Valores perigosos podem estar ligados a suspeitos. Analise com cuidado! ⚠️")
+            valores_perigosos()
+        elif escolha == "5":
             print("\n🔪 Você sente o peso da decisão. Acusar um inocente ou apontar o culpado? Não se engane, a linha entre a verdade e a mentira é tênue... 🔪")
             suspeito = input("Digite o nome do sorvete que você quer acusar: ")
             resultado = acusar(suspeito, culpado)
             print(resultado)
-        elif escolha == "5":
+        elif escolha == "6":
             print("\nVocê se afasta da Doce Latto... mas a sombra do mistério ainda paira sobre você sem solução. 💀")
             time.sleep(3)
             print("Saindo do jogo...")
@@ -65,7 +69,7 @@ def iniciar_jogo(sorvetes):
         else:
             print("\n❌ Opção inválida! Escolha um número entre 1 e 5. ❌")
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
 
