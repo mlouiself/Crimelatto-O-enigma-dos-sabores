@@ -1,6 +1,17 @@
 import csv
 import time
 import random
+from tabulate import tabulate
+
+def valores_perigosos():
+    dados = [
+        ["Consciência", "Acima de 50%"],
+        ["Quantidade de Lustro", "Média - Alta"],
+        ["Nível de Derretimento", "Médio - Rápido"]
+    ]
+
+    tabela = tabulate(dados, headers=["Parâmetro", "Valor Perigoso"], tablefmt="grid")
+    return tabela
 
 def carregar_sorvetes(caminho_csv):
     sorvetes = []
