@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* Estilo do cabeçalho */
+/* Estilo do cabeçalho */
 header {
     background-color: #3E1F47;
     padding: 10px;
@@ -32,6 +32,7 @@ main {
 .welcome-container h2 {
     font-size: 2.5em;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
     /* Contêiner principal da página */
@@ -46,7 +47,7 @@ main {
     color: #fff;
 }
 
-    /* Estilo para cada seção de conteúdo */
+        /* Estilo para cada seção de conteúdo */
 .about-section {
     margin-bottom: 30px;
 }
@@ -59,6 +60,15 @@ main {
     margin-bottom: 20px;
 }
 
+.about-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-section strong {
+    color: #A7D3F2;
+}
+
     /* Estilo para listas */
 .about-section ul {
     margin-left: 25px;
@@ -69,15 +79,15 @@ main {
     margin-bottom: 8px;
 }
 
-    /* Estilo para a seção de membros da equipe */
-.team-members {
+    /* Estilo para os cards de recomendação */
+.recommendation-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
-.team-member {
+.rec-card {
     width: 45%;
     text-align: center;
     margin-bottom: 20px;
@@ -87,14 +97,14 @@ main {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.team-member:hover {
+.rec-card:hover {
     transform: translateY(-5px);
     background-color: rgba(62, 31, 71, 0.5);
 }
 
-.team-member h3 {
+.rec-card h3 {
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
     /* Estilo para os botões de navegação */
@@ -119,7 +129,7 @@ main {
     background-color: #2B2B2B;
 }
 
-/* Estilo para o rodapé */
+/* Estilo para o rodapé */
 footer {
     text-align: center;
     padding: 10px;

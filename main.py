@@ -15,8 +15,8 @@ def introducao():
     time.sleep(3)
     print("\nEsse misterioso Lustro dá vida aos sorvetes, permitindo que eles sintam, pensem... e, agora, agem. 🤖🍦")
     time.sleep(4)
-
-    print("\nMas, na calada da noite, algo horrível aconteceu... ⚡💔")
+    
+    print("\nMas, na calada da noite, algo horrível aconteceu... ⚡💔") 
     time.sleep(3)
     print("O Sr. Gelatelli, o excêntrico dono da sorveteria, foi encontrado sem vida em sua cozinha. O que aconteceu ali? O que ele sabia? 🏚️💭")
     time.sleep(4)
