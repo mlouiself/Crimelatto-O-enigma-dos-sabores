@@ -9,31 +9,29 @@ def exibir_titulo():
     time.sleep(2)
 
 def introducao():
-    print("\n🍨 Bem-vindo(a) a Doce Latto, a sorveteria mais famosa da cidade. 🍨")
+    print("\n🍨 Bem-vindo(a) a Doce Latto, a sorveteria mais enigmática da cidade... 🍨")
     time.sleep(3)
-    print("Renomada por seus sabores únicos, a Doce Latto guarda um segredo, um ingrediente raro e proibido: o Lustro. ✨")
+    print("Famosa pelos sabores exóticos, mas poucos sabem sobre o ingrediente secreto e proibido que ela esconde: o Lustro. ✨")
     time.sleep(3)
-    print("\nEste ingrediente especial dá vida aos sorvetes, permitindo que pensem, sintam...")
-    time.sleep(3)
-    print("E, como foi descoberto recentemente, ajam.")
+    print("\nEsse ingrediente raro tem o poder de dar vida aos sorvetes, permitindo que eles... pensem, sintam... e agora, talvez... ajam? 👀")
     time.sleep(4)
     
-    print("\nNa última noite, um crime chocante abalou a sorveteria. 💔") 
+    print("\nNa noite passada, um crime misterioso abalou o coração da Doce Latto. 💔") 
     time.sleep(3)
-    print("O Sr. Gelatelli, o excêntrico dono do estabelecimento, foi encontrado sem vida em sua cozinha. ")
+    print("O excêntrico dono, Sr. Gelatelli, foi encontrado sem vida em sua cozinha, um enigma congelado no ar. 🥶")
     time.sleep(4)
 
-    print("\nOs sorvetes ganharam vida... e agora, um deles pode ser o assassino que silenciou Sr. Gelatelli. 🔪")
+    print("\nMas... algo estranho aconteceu... os sorvetes ganharam vida. E agora, entre eles, pode estar o assassino do Sr. Gelatelli. 🔪👁️")
     time.sleep(3)
-    print("Você consegue desvendar esse enigma gelado antes que tudo se derreta em um mar de mentiras e mistérios? O tempo está contra você.")
+    print("Você consegue desvendar esse mistério antes que tudo se derreta em um mar de mentiras e segredos? ⏳")
     time.sleep(6)
 
 def iniciar_jogo(sorvetes):
     culpado = random.choice(sorvetes)['nome_sorvete']
-    print(f"\n- O culpado foi determinado nas sombras... Mas não se engane, nem tudo é doce como parece. Boa sorte em descobrir a verdade! 🔎")
+    print(f"\n- A verdade está nas sombras, oculta nos corações congelados. Mas, cuidado... as aparências podem enganar. Boa sorte, detetive. 🔍")
 
     while True:
-        print("\nAs sombras espreitam enquanto você pondera sobre o que fazer a seguir...")
+        print("\nO mistério cresce, as sombras sussurram. O que você fará a seguir? 🌑")
         print("1. 🧩 Investigar a cena do crime")
         print("2. 🍦 Interrogar os sorvetes suspeitos")
         print("3. 📝 Analisar as pistas coletadas")
@@ -43,27 +41,27 @@ def iniciar_jogo(sorvetes):
         escolha = input("\nDigite sua escolha: ")
 
         if escolha == "1":
-            print("\n❄️ O ar está denso e gelado. Você avança lentamente, seu coração bate mais rápido enquanto examina a cena do crime. O silêncio é palpável, mas os detalhes começam a falar. ❄️")
+            print("\n❄️ O ar está pesado, quase congelante. Cada passo ecoa no silêncio, mas entre as sombras... algo começa a se revelar. ❄️")
             investigar_cena_crime()
         elif escolha == "2":
-            print("\n🍦 Cada sorvete tem uma história e segredos... Será você que conseguirá extrair as verdades congeladas? 🍦")
+            print("\n🍦 Os sorvetes falam com vozes congeladas... será que você conseguirá extrair as verdades ocultas entre as camadas de gelo? 🍦")
             interrogar_suspeitos(sorvetes)
         elif escolha == "3":
-            print("\n🔍 O caos está ao seu redor, mas se souber conectar as pistas certas, a verdade poderá se revelar... 🔍")
+            print("\n🔍 As pistas estão espalhadas, como fragmentos de um sonho congelado. Conecte-as, e a verdade poderá surgir... 🔍")
             mostrar_pistas()
         elif escolha == "4":
-            print("\n🔪 Você sente o peso da decisão. Acusar um inocente ou apontar o culpado? Não se engane, a linha entre a verdade e a mentira é tênue... 🔪")
-            suspeito = input("Digite o nome do sorvete que você quer acusar: ")
+            print("\n🔪 A tensão é palpável... o peso da acusação. Você está prestes a decidir: quem entre os sorvetes é o culpado? ⚖️")
+            suspeito = input("Digite o nome do sorvete que você deseja acusar: ")
             resultado = acusar(suspeito, culpado)
             print(resultado)
         elif escolha == "5":
-            print("\nVocê se afasta da Doce Latto... mas a sombra do mistério ainda paira sobre você sem solução. 💀")
+            print("\nVocê se afasta da Doce Latto, mas a neblina do mistério ainda envolve sua mente. O enigma permanece sem solução. 💀")
             time.sleep(3)
-            print("Saindo do jogo...")
+            print("Saindo do jogo... a escuridão aguarda sua próxima visita. 🕯️")
             time.sleep(3)
             break
         else:
-            print("\n❌ Opção inválida! Escolha um número entre 1 e 5. ❌")
+            print("\n❌ Opção inválida! Escolha um número entre 1 e 5, ou se perderá na escuridão. ❌")
 
 if __name__ == "__main__":
     caminho_csv = "sorvetes.csv"
