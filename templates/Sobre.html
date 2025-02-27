@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Crimelatto: O Enigma dos Sabores</title>
-    <link rel="stylesheet" href="/static/Css/Sobre.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Sobre.css') }}">
 
 </head>
 <body>
@@ -70,8 +70,7 @@
             </div>
             
             <div class="navigation-buttons">
-                <a href="/templates/index.html"><button>Voltar para a Página Inicial</button></a>
-                <a href="/templates/Game.html"><button>Começar a Jogar</button></a>
+                <a href="{{ url_for('index.html') }}"><button>Voltar para a Página Inicial</button></a>
             </div>
         </div>
     </main>
@@ -80,7 +79,7 @@
         <div class="footer-content">
             <p>&copy; 2025 Crimelatto. Todos os direitos reservados.</p>
             <ul class="footer-links">
-                <li><a href="/templates/index.html">Página Inicial</a></li>
+                <li><a href="{{ url_for('index.html') }}">Página Inicial</a></li>
             </ul>
         </div>
     </footer>

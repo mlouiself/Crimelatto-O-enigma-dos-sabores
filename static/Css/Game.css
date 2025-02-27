@@ -27,8 +27,12 @@ h1 {
 
 /* Conteudo da página*/
 main{
-    background-image: url(/img/Background_index.html.jpg);
+    background-image: url(/static/img/Background_index.html.jpg);
     min-height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end;
+    padding-bottom: 20px;
 }
 
 @font-face {
@@ -42,6 +46,7 @@ main{
     border: 4px solid white;
     background-color: black;
     position: relative;
+    color: white;
 }
 
 .text {

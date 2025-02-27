@@ -6,15 +6,15 @@ app = flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/')
+@app.route('/Game')
 def game():
     return render_template('Game.html')
 
-@app.route('/')
+@app.route('/Sobre')
 def game():
     return render_template('Sobre.html')
 
-@app.route('/')
+@app.route('/Sobre_o_jogo')
 def about_game():
     return render_template('Sobre_o_jogo.html')
 

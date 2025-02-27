@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doce Latto: Uma noite, um mistério, muitos sabores...</title>
-    <link rel="stylesheet" href="/static/Css/Sobre_o_jogo.css">
+    <title>Crimelatto: O Enigma dos Sabores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Sobre_o_jogo.css') }}">
 </head>
 <body>
     <header>
-        <h1>Doce Latto</h1>
+        <h1>Crimelatto: O Enigma dos Sabores</h1>
     </header>
     
     <main>
@@ -72,8 +72,7 @@
             </div>
             
             <div class="navigation-buttons">
-                <a href="/templates/index.html"><button>Voltar para a Página Inicial</button></a>
-                <a href="/templates/Game.html"><button>Começar a Jogar</button></a>
+                <a href="{{ url_for('index.html') }}"><button>Voltar para a Página Inicial</button></a>
             </div>
         </div>
     </main>
@@ -82,8 +81,8 @@
         <div class="footer-content">
             <p>&copy; 2025 Doce Latto. Todos os direitos reservados.</p>
             <ul class="footer-links">
-                <li><a href="/templates/index.html">Página Inicial</a></li>
-                <li><a href="/templates/Sobre.html">Sobre</a></li>
+                <li><a href="{{ url_for('index.html') }}">Página Inicial</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
             </ul>
         </div>
     </footer>

@@ -26,7 +26,7 @@ h1 {
 
 /* Estilo do conteudo */
 main{
-    background-image: url(/img/Background_index.html.jpg);
+    background-image: url(/static/img/Background_index.html.jpg);
     min-height: 100vh;
 }
 
