@@ -103,7 +103,7 @@ def acusar(suspeito, culpado):
                 f"uma estranha sensação de desconforto toma conta de você. Algo não está certo. O silêncio da sala cresce, como se as paredes estivessem "
                 f"rindo de sua acusação falha. {suspeito} não era o culpado... Ou será que ele ainda guarda segredos mais profundos? O jogo continua... 🕳️")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
     
