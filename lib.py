@@ -1,17 +1,6 @@
 import csv
 import time
 import random
-from tabulate import tabulate
-
-def valores_perigosos():
-    dados = [
-        ["Consciência", "Acima de 50%"],
-        ["Quantidade de Lustro", "Média - Alta"],
-        ["Nível de Derretimento", "Médio - Rápido"]
-    ]
-
-    tabela = tabulate(dados, headers=["Parâmetro", "Valor Perigoso"], tablefmt="grid")
-    return tabela
 
 def carregar_sorvetes(caminho_csv):
     sorvetes = []
@@ -114,7 +103,7 @@ def acusar(suspeito, culpado):
                 f"uma estranha sensação de desconforto toma conta de você. Algo não está certo. O silêncio da sala cresce, como se as paredes estivessem "
                 f"rindo de sua acusação falha. {suspeito} não era o culpado... Ou será que ele ainda guarda segredos mais profundos? O jogo continua... 🕳️")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     caminho_csv = "sorvetes.csv"
     sorvetes = carregar_sorvetes(caminho_csv)
     
