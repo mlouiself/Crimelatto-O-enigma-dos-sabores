@@ -1,6 +1,7 @@
 import time
 import random
-from lib import carregar_sorvetes, investigar_cena_crime, mostrar_pistas, interrogar_suspeitos, acusar
+from lib import valores_perigosos, carregar_sorvetes, investigar_cena_crime, mostrar_pistas, interrogar_suspeitos, acusar
+
 
 def exibir_titulo():
     print("\n" + "-" * 50)
@@ -35,8 +36,9 @@ def iniciar_jogo(sorvetes):
         print("1. 🧩 Investigar a cena do crime")
         print("2. 🍦 Interrogar os sorvetes suspeitos")
         print("3. 📝 Analisar as pistas coletadas")
-        print("4. ⚖️  Acusar um suspeito")
-        print("5. 🚪 Sair do jogo")
+        print("4. 💣 Analisar tabela de valores perigosos")
+        print("5. ⚖️  Acusar um suspeito")
+        print("6. 🚪 Sair do jogo")
 
         escolha = input("\nDigite sua escolha: ")
 
@@ -50,11 +52,14 @@ def iniciar_jogo(sorvetes):
             print("\n🔍 As pistas estão espalhadas, como fragmentos de um sonho congelado. Conecte-as, e a verdade poderá surgir... 🔍")
             mostrar_pistas()
         elif escolha == "4":
+            print("\n 🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
+            valores_perigosos()
+        elif escolha == "5":
             print("\n🔪 A tensão é palpável... o peso da acusação. Você está prestes a decidir: quem entre os sorvetes é o culpado? ⚖️")
             suspeito = input("Digite o nome do sorvete que você deseja acusar: ")
             resultado = acusar(suspeito, culpado)
             print(resultado)
-        elif escolha == "5":
+        elif escolha == "6":
             print("\nVocê se afasta da Doce Latto, mas a neblina do mistério ainda envolve sua mente. O enigma permanece sem solução. 💀")
             time.sleep(3)
             print("Saindo do jogo... a escuridão aguarda sua próxima visita. 🕯️")

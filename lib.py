@@ -1,12 +1,23 @@
 import csv
 import time
 import random
+from tabulate import tabulate
+
+
+dados = [
+    ["Consciência", "Acima de 50%"],
+    ["Quantidade de lustro", "Média - Alta"],
+    ["Nível de derretimento", "Médio - Rápido"]
+]
+
+def valores_perigosos():
+    print(tabulate(dados, headers=["Parametro", "Valor"], tablefmt="grid"))
 
 def carregar_sorvetes(caminho_csv):
     sorvetes = []
     with open(caminho_csv, mode='r', encoding='utf-8') as arquivo:
         leitor_csv = csv.reader(arquivo, delimiter=';')
-        next(leitor_csv)
+        next(leitor_csv)  # Pula o cabeçalho do CSV
         for linha in leitor_csv:
             sabor_sorvete = linha[0]
             nome_sorvete = linha[1]
@@ -28,7 +39,7 @@ def carregar_sorvetes(caminho_csv):
                 'nivel_derretimento': nivel_derretimento,
                 'freezer': freezer
             })
-    return sorvetes
+    return sorvetes  # Retorna a lista de sorvetes
 
 def mostrar_pistas():
     pistas = [
