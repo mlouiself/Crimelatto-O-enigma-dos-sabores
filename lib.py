@@ -1,6 +1,5 @@
 import time
 import csv
-import random
 
 def imprimir_lentamente(texto, velocidade=0.03):
     for caractere in texto:
@@ -42,12 +41,12 @@ def exibir_introducao():
     print("="*50 + "\n")
 
     historia = [
-        "Na pacata e renomada sorveteria Doce Latto, os sabores não são apenas deliciosos – eles têm consciência.",
+        "Na renomada sorveteria Doce Latto, os sabores não são apenas deliciosos – eles têm consciência.",
         "Criados com o segredo mais bem guardado da cidade, o Lustro, um ingrediente mágico que lhes confere vida.",
         "No entanto, um dia, o Sr. Gelatelli, dono da loja, é encontrado morto.",
-        "E, para surpresa de todos, o sabor Chocolate, um dos mais populares, também foi assassinado.",
+        "E, para surpresa de todos, Choco, o sorvete sabor chocolate, um dos mais populares, também foi assassinado.",
         "Como um investigador contratado, você deve descobrir a verdade por trás desse crime gelado.",
-        "Mas antes de começar sua investigação, você deve assinar um contrato de trabalho que garante a segurança dos segredos da CrimeLatto."
+        "Mas antes de começar sua investigação, você deve assinar um contrato de trabalho que garante a segurança dos segredos da Doce Latto."
     ]
     
     for linha in historia:
@@ -57,17 +56,17 @@ def exibir_introducao():
     print(f"\nBem-vindo, {nome_investigador}! Vamos prosseguir com a assinatura do contrato.")
 
     contrato = f"""
-    +---------------------------------------------------------+
-    |                   CONTRATO DE INVESTIGAÇÃO              |
-    |                      Sorveteria Doce Latto             |
-    +---------------------------------------------------------+
+    +-------------------------------------------------+
+    |              CONTRATO DE INVESTIGAÇÃO           |
+    |               Sorveteria Doce Latto             |
+    +-------------------------------------------------+
 
     Parabéns! Você foi contratado(a) como investigador(a) da
     Sorveteria Doce Latto, o lugar mais enigmático e delicioso da cidade.
 
     Aqui, os sabores são mais do que simples delícias – eles possuem segredos,
     e você foi escolhido(a) para desvendá-los. Sua missão é clara: resolver
-    o mistério por trás do assassinato de Sr. Gelatelli e do sabor Chocolate,
+    o mistério por trás do assassinato de Sr. Gelatelli e Choco,
     sem jamais revelar o que descobrir.
 
     Ao assinar este contrato, você concorda com os seguintes termos:
@@ -81,13 +80,7 @@ def exibir_introducao():
     3. *Dever de Resolução*: Como investigador(a), você deve usar sua habilidade de dedução
        para resolver o crime. Isso inclui examinar pistas e interrogar suspeitos.
 
-    4. *Regras para Solução do Crime*:
-       - Você deve examinar pelo menos 3 pistas antes de fazer uma acusação.
-       - É obrigatório interrogar pelo menos 2 suspeitos.
-       - Utilize as informações coletadas para formular sua acusação.
-       - Caso faça uma acusação sem seguir as regras, sua pontuação será reduzida.
-
-    5. *Consequências*: Quebrar este contrato resultará em severas penalidades,
+    4. *Consequências*: Quebrar este contrato resultará em severas penalidades,
        incluindo, mas não se limitando, a derretimento instantâneo de seus próprios segredos.
 
     Assine abaixo para confirmar sua aceitação:
@@ -97,7 +90,7 @@ def exibir_introducao():
     [Data]: {time.strftime('%d/%m/%Y')}
 
     +---------------------------------------------------------+
-    | Atenção: Este contrato é vinculante e irrevogável.       |
+    | Atenção: Este contrato é vinculante e irrevogável.      |
     | Boa sorte, você precisará dela!                         |
     +---------------------------------------------------------+
     """
@@ -113,11 +106,11 @@ def exibir_cena_crime():
     print("="*50 + "\n")
 
     descricao = [
-        "Você chega à sorveteria CrimeLatto. A polícia já isolou o local.",
+        "Você chega à sorveteria Doce Latto. A polícia já isolou o local.",
         "O corpo do Sr. Gelatelli foi encontrado na cozinha, ao lado de um saco de Lustro derramado.",
-        "Em um freezer, encontra-se o que restou do sabor Chocolate.",
+        "Em um freezer, encontra-se o que restou de Choco.",
         "As pistas incluem pegadas geladas, manchas de derretimento, um vidro rachado e uma colher torta.",
-        "Como investigador, sua missão é descobrir o culpado antes que os segredos da CrimeLatto sejam perdidos para sempre."
+        "Como investigador, sua missão é descobrir o culpado antes que os segredos da Doce Latto sejam perdidos para sempre."
     ]
 
     for linha in descricao:
@@ -169,46 +162,46 @@ def interrogar_suspeito(suspeito, culpado):
     perguntas = [
         "Onde você estava na noite do crime?",
         "O que sabe sobre o Lustro?",
-        "Qual era sua relação com Chocolate?",
-        "O que acha que aconteceu com Gelatelli?"
+        "Qual era sua relação com Choco?",
+        "O que acha que aconteceu com Sr. Gelatelli?"
     ]
     
     respostas = {
         "Onde você estava na noite do crime?": {
-            "Bauni🍦": "Eu estava no meu freezer, como sempre. Não sou de me mover muito!",
-            "Moranguinho🍓": "Eu estava me divertindo, mas não sou de ficar presa a horários!",
-            "Mentolado🍃🍫": "Estava em silêncio, como sempre. O que mais poderia fazer?",
-            "Nocci🌰": "Refletindo sobre a vida e o significado do Lustro.",
-            "Caramella🍯": "Ah, querido, eu estava apenas esperando o momento certo para brilhar.",
-            "Pistacho🌰": "Estava em um experimento, tentando entender o Lustro melhor.",
-            "Limone🍋": "Eu estava me preparando para uma explosão de sabor, como sempre!"
+            "Bauni": "Eu estava no meu freezer, como sempre. Não sou de me mover muito!",
+            "Moranguinho": "Eu estava me divertindo, mas não sou de ficar presa a horários!",
+            "Mentolado": "Estava em silêncio, como sempre. O que mais poderia fazer?",
+            "Nocci": "Refletindo sobre a vida e o significado do Lustro.",
+            "Caramella": "Ah, querido, eu estava apenas esperando o momento certo para brilhar.",
+            "Pistacho": "Estava em um experimento, tentando entender o Lustro melhor.",
+            "Limone": "Eu estava me preparando para uma explosão de sabor, como sempre!"
         },
         "O que sabe sobre o Lustro?": {
-            "Bauni🍦": "Lustro é algo que confere poder, mas não sei muito além disso. É... perigoso.",
-            "Moranguinho🍓": "Ouvi rumores, mas não confio em ninguém aqui.",
-            "Mentolado🍃🍫": "O Lustro é um mistério, e eu prefiro não me envolver.",
-            "Nocci🌰": "O Lustro é fascinante, mas também perigoso. Conheço seus segredos.",
-            "Caramella🍯": "Ah, o Lustro... é uma delícia, mas tem suas armadilhas.",
-            "Pistacho🌰": "O Lustro é a chave para muitos segredos. Estou sempre estudando.",
-            "Limone🍋": "Lustro? É o que dá sabor à vida, mas também pode ser traiçoeiro."
+            "Bauni": "Lustro é algo que confere poder, mas não sei muito além disso. É... perigoso.",
+            "Moranguinho": "Ouvi rumores, mas não confio em ninguém aqui.",
+            "Mentolado": "O Lustro é um mistério, e eu prefiro não me envolver.",
+            "Nocci": "O Lustro é fascinante, mas também perigoso. Conheço seus segredos.",
+            "Caramella": "Ah, o Lustro... é uma delícia, mas tem suas armadilhas.",
+            "Pistacho": "O Lustro é a chave para muitos segredos. Estou sempre estudando.",
+            "Limone": "Lustro? É o que dá sabor à vida, mas também pode ser traiçoeiro."
         },
         "Qual era sua relação com Chocolate?": {
-            "Bauni🍦": "Chocolate sempre foi o favorito. Eu sempre estive à sombra dele.",
-            "Moranguinho🍓": "Ele era popular, mas eu não me importava. Eu sou única!",
-            "Mentolado🍃🍫": "Chocolate era um rival, mas eu preferia ficar na minha.",
-            "Nocci🌰": "Tínhamos uma relação de respeito, mas sempre havia competição.",
-            "Caramella🍯": "Ah, Chocolate... sempre tão doce e tão ingênuo.",
-            "Pistacho🌰": "Chocolate era um enigma, sempre intrigante.",
-            "Limone🍋": "Chocolate? Ele era bom, mas eu sou o verdadeiro sabor!"
+            "Bauni": "Chocolate sempre foi o favorito. Eu sempre estive à sombra dele.",
+            "Moranguinho": "Ele era popular, mas eu não me importava. Eu sou única!",
+            "Mentolado": "Chocolate era um rival, mas eu preferia ficar na minha.",
+            "Nocci": "Tínhamos uma relação de respeito, mas sempre havia competição.",
+            "Caramella": "Ah, Chocolate... sempre tão doce e tão ingênuo.",
+            "Pistacho": "Chocolate era um enigma, sempre intrigante.",
+            "Limone": "Chocolate? Ele era bom, mas eu sou o verdadeiro sabor!"
         },
         "O que acha que aconteceu com Gelatelli?": {
-            "Bauni🍦": "Gelatelli era muito próximo do segredo do Lustro. Acho que ele sabia demais.",
-            "Moranguinho🍓": "Ele estava sempre no meio de tudo. Não me surpreenderia se soubesse algo.",
-            "Mentolado🍃🍫": "Gelatelli era um mistério, e seu destino é igualmente enigmático.",
-            "Nocci🌰": "Gelatelli era sábio, mas os segredos podem ser perigosos.",
-            "Caramella🍯": "Gelatelli provavelmente se meteu em algo que não deveria.",
-            "Pistacho🌰": "Ele estava sempre buscando conhecimento. Isso pode ter sido sua ruína.",
-            "Limone🍋": "Gelatelli? Ele era um jogador, e os jogadores às vezes perdem."
+            "Bauni": "Gelatelli era muito próximo do segredo do Lustro. Acho que ele sabia demais.",
+            "Moranguinho": "Ele estava sempre no meio de tudo. Não me surpreenderia se soubesse algo.",
+            "Mentolado": "Gelatelli era um mistério, e seu destino é igualmente enigmático.",
+            "Nocci": "Gelatelli era sábio, mas os segredos podem ser perigosos.",
+            "Caramella": "Gelatelli provavelmente se meteu em algo que não deveria.",
+            "Pistacho": "Ele estava sempre buscando conhecimento. Isso pode ter sido sua ruína.",
+            "Limone": "Gelatelli? Ele era um jogador, e os jogadores às vezes perdem."
         }
     }
 
@@ -229,14 +222,21 @@ def revelar_culpado(acusado, culpado):
     print("="*50 + "\n")
 
     if acusado == culpado:
-        imprimir_lentamente(f"Você acusa {acusado['nome_sorvete']}...")
-        imprimir_lentamente("Ele tenta fugir, mas é tarde demais!")
-        imprimir_lentamente("O assassino confessa!")
-        imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
+        imprimir_lentamente(f"Você aponta firmemente para {acusado['nome_sorvete']}...")
+        imprimir_lentamente("Um silêncio gelado toma conta da sala.")
+        imprimir_lentamente(f"{acusado['nome_sorvete']} hesita, mas logo sua expressão muda.")
+        imprimir_lentamente("Ele tenta fugir, mas é impedido!")
+        imprimir_lentamente("Você soluciona o mistério e traz justiça à Doce Latto!")
+        print("\n✨ PARABÉNS! VOCÊ DESVENDOU O CRIME! ✨")
     else:
-        imprimir_lentamente(f"Você acusa {acusado['nome_sorvete']}...")
-        imprimir_lentamente("Mas o verdadeiro culpado escapa!")
-        imprimir_lentamente(f"O assassino era {culpado['nome_sorvete']} ({culpado['sabor_sorvete']}).")
-        imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
+        imprimir_lentamente(f"Você aponta para {acusado['nome_sorvete']}, confiante em sua acusação...")
+        imprimir_lentamente("Mas algo parece errado.")
+        imprimir_lentamente("De repente, uma risada ecoa pela sala.")
+        imprimir_lentamente(f"{culpado['nome_sorvete']} surge das sombras, com um sorriso maligno.")
+        imprimir_lentamente(f"«Você errou, investigador. O verdadeiro culpado sou eu!»")
+        imprimir_lentamente("O assassino escapa, deixando para trás apenas um rastro de gelo derretido.")
+        print("\n💀 VOCÊ ERROU! O VERDADEIRO CULPADO ESCAPOU! 💀")
 
-    print("\nFIM DE JOGO!")
+    print("\n" + "="*50)
+    print("FIM DE JOGO!".center(50))
+    print("="*50)
