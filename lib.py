@@ -238,7 +238,11 @@ def revelar_culpado(acusado, culpado):
         imprimir_lentamente("Em um movimento desesperado, ele tenta fugir, mas algo o detém... A justiça não pode ser impedida.")
         imprimir_lentamente("O mistério se dissolve diante de você, como neve ao sol. Você trouxe a verdade à luz de Doce Latto!")
         print("\n✨ O ENIGMA FOI DESVENDADO. A JUSTIÇA TRIUNFOU! ✨")
-
+        
+        print("\n" + "="*50)
+        print("FIM DE JOGO!".center(50))
+        print("="*50)
+        
     else:
         imprimir_lentamente(f"Você, confiante, aponta para {acusado['nome_sorvete']}, acreditando que a verdade está ao seu alcance...")
         imprimir_lentamente("Mas algo no ar faz o sangue gelar. Uma sensação de incerteza rasteja por sua espinha.")
@@ -247,8 +251,7 @@ def revelar_culpado(acusado, culpado):
         imprimir_lentamente(f"«Você falhou, investigador... O verdadeiro culpado sou eu!»")
         imprimir_lentamente("Com uma risada final, o assassino desaparece na escuridão, deixando para trás apenas um rastro de gelo derretido.")
         print("\n💀 O ERRO FOI SEU! O CULPADO ESCAPOU, E O CRIME PERMANECE NO AR... 💀")
-
-
-    print("\n" + "="*50)
-    print("FIM DE JOGO!".center(50))
-    print("="*50)
+        
+        print("\n" + "="*50)
+        print("FIM DE JOGO!".center(50))
+        print("="*50)
