@@ -1,125 +1,259 @@
-import csv
 import time
+import csv
 import random
-from tabulate import tabulate
 
+def imprimir_lentamente(texto, velocidade=0.03):
+    for caractere in texto:
+        print(caractere, end='', flush=True)
+        time.sleep(velocidade)
+    print()
 
-dados = [
-    ["Consciência", "Acima de 50%"],
-    ["Quantidade de lustro", "Média - Alta"],
-    ["Nível de derretimento", "Médio - Rápido"]
-]
-
-def valores_perigosos():
-    print(tabulate(dados, headers=["Parametro", "Valor"], tablefmt="grid"))
-
-def carregar_sorvetes(caminho_csv):
+def carregar_sorvetes():
     sorvetes = []
-    with open(caminho_csv, mode='r', encoding='utf-8') as arquivo:
-        leitor_csv = csv.reader(arquivo, delimiter=';')
-        next(leitor_csv)  # Pula o cabeçalho do CSV
-        for linha in leitor_csv:
-            sabor_sorvete = linha[0]
-            nome_sorvete = linha[1]
-            aparencia = linha[2]
-            consciencia = linha[3]
-            quantidade_lustro = linha[4]
-            personalidade = linha[5]
-            personalidade_oculta = linha[6]
-            nivel_derretimento = linha[7]
-            freezer = linha[8]
-            sorvetes.append({
-                'sabor_sorvete': sabor_sorvete,
-                'nome_sorvete': nome_sorvete,
-                'aparencia': aparencia,
-                'consciencia': consciencia,
-                'quantidade_lustro': quantidade_lustro,
-                'personalidade': personalidade,
-                'personalidade_oculta': personalidade_oculta,
-                'nivel_derretimento': nivel_derretimento,
-                'freezer': freezer
-            })
-    return sorvetes  # Retorna a lista de sorvetes
+    try:
+        arquivo = open('sorvetes.csv', 'r', encoding='utf-8')
+        leitor = csv.reader(arquivo, delimiter=';')
+        next(leitor)
+        
+        for linha in leitor:
+            sorvete = {
+                "sabor_sorvete": linha[0],
+                "nome_sorvete": linha[1],
+                "aparencia": linha[2],
+                "consciencia": linha[3],
+                "quantidade_lustro": linha[4],
+                "personalidade": linha[5],
+                "personalidade_oculta": linha[6],
+                "nivel_derretimento": linha[7],
+                "freezer": linha[8]
+            }
+            sorvetes.append(sorvete)
+        
+        arquivo.close()
+    except FileNotFoundError:
+        print("Erro: O arquivo 'sorvetes.csv' não foi encontrado.")
+        exit(1)
+    
+    return sorvetes
 
-def mostrar_pistas():
-    pistas = [
-        "👣 Pegadas congeladas: As marcas parecem de alguém que tentou fugir apressadamente do freezer. O gelo estalava como se algo terrível tivesse acontecido lá dentro... Mas quem fugiria com tanto desespero?",
-        "💧 Manchas de sorvete derretido: Um rastro pegajoso se estende pelo chão da cozinha, misturando sabores e cheiros. Cada gota parece contar uma história... mas será que é a história certa?",
-        "🥄 Colher metálica torta: Jogada no chão, a colher ainda brilha sob a luz fraca. Foi dobrada por algo ou alguém com muita força... Como se estivesse envolvida em algo mais do que apenas servir sorvete.",
-        "❄️  Fragmentos de sorvete congelado: Espalhados como cacos de vidro, pequenos pedaços de sorvete estão por toda parte. Mas não há sinais de luta... Eles foram deixados ali por propósito ou descuido?"
+def exibir_introducao():
+    print("\n" + "="*50)
+    print("CRIMELATTO: O ENIGMA DOS SABORES".center(50))
+    print("="*50 + "\n")
+
+    historia = [
+        "Na pacata e renomada sorveteria Doce Latto, os sabores não são apenas deliciosos – eles têm consciência.",
+        "Criados com o segredo mais bem guardado da cidade, o Lustro, um ingrediente mágico que lhes confere vida.",
+        "No entanto, um dia, o Sr. Gelatelli, dono da loja, é encontrado morto.",
+        "E, para surpresa de todos, o sabor Chocolate, um dos mais populares, também foi assassinado.",
+        "Como um investigador contratado, você deve descobrir a verdade por trás desse crime gelado.",
+        "Mas antes de começar sua investigação, você deve assinar um contrato de trabalho que garante a segurança dos segredos da CrimeLatto."
     ]
-    print("\nPistas misteriosas encontradas na cena do crime:")
-    for pista in pistas:
-        print(f"- {pista}")
-        time.sleep(3)
+    
+    for linha in historia:
+        imprimir_lentamente(linha)
+    
+    nome_investigador = input("\nQual é o seu nome, investigador? ")
+    print(f"\nBem-vindo, {nome_investigador}! Vamos prosseguir com a assinatura do contrato.")
 
-def interrogar_suspeitos(sorvetes):
+    contrato = f"""
+    +---------------------------------------------------------+
+    |                   CONTRATO DE INVESTIGAÇÃO              |
+    |                      Sorveteria Doce Latto             |
+    +---------------------------------------------------------+
+
+    Parabéns! Você foi contratado(a) como investigador(a) da
+    Sorveteria Doce Latto, o lugar mais enigmático e delicioso da cidade.
+
+    Aqui, os sabores são mais do que simples delícias – eles possuem segredos,
+    e você foi escolhido(a) para desvendá-los. Sua missão é clara: resolver
+    o mistério por trás do assassinato de Sr. Gelatelli e do sabor Chocolate,
+    sem jamais revelar o que descobrir.
+
+    Ao assinar este contrato, você concorda com os seguintes termos:
+
+    1. *Sigilo Absoluto*: Toda e qualquer informação sobre a Doce Latto, seus sabores,
+       ingredientes secretos e acontecimentos internos deve permanecer em segredo.
+
+    2. *Proibição de Questionar o Lustro*: O Lustro é o ingrediente misterioso e vital
+       que dá vida aos nossos sorvetes. Sua origem e seus efeitos são secretos e não podem ser questionados.
+
+    3. *Dever de Resolução*: Como investigador(a), você deve usar sua habilidade de dedução
+       para resolver o crime. Isso inclui examinar pistas e interrogar suspeitos.
+
+    4. *Regras para Solução do Crime*:
+       - Você deve examinar pelo menos 3 pistas antes de fazer uma acusação.
+       - É obrigatório interrogar pelo menos 2 suspeitos.
+       - Utilize as informações coletadas para formular sua acusação.
+       - Caso faça uma acusação sem seguir as regras, sua pontuação será reduzida.
+
+    5. *Consequências*: Quebrar este contrato resultará em severas penalidades,
+       incluindo, mas não se limitando, a derretimento instantâneo de seus próprios segredos.
+
+    Assine abaixo para confirmar sua aceitação:
+
+    [Nome do Investigador]: {nome_investigador}
+
+    [Data]: {time.strftime('%d/%m/%Y')}
+
+    +---------------------------------------------------------+
+    | Atenção: Este contrato é vinculante e irrevogável.       |
+    | Boa sorte, você precisará dela!                         |
+    +---------------------------------------------------------+
+    """
+    
+    for linha in contrato.split("\n"):
+        imprimir_lentamente(linha, velocidade=0.02)
+
+    input("\nPressione ENTER para continuar...")
+
+def exibir_cena_crime():
+    print("\n" + "="*50)
+    print("A CENA DO CRIME".center(50))
+    print("="*50 + "\n")
+
+    descricao = [
+        "Você chega à sorveteria CrimeLatto. A polícia já isolou o local.",
+        "O corpo do Sr. Gelatelli foi encontrado na cozinha, ao lado de um saco de Lustro derramado.",
+        "Em um freezer, encontra-se o que restou do sabor Chocolate.",
+        "As pistas incluem pegadas geladas, manchas de derretimento, um vidro rachado e uma colher torta.",
+        "Como investigador, sua missão é descobrir o culpado antes que os segredos da CrimeLatto sejam perdidos para sempre."
+    ]
+
+    for linha in descricao:
+        imprimir_lentamente(linha)
+    
+    input("\nPressione ENTER para continuar...")
+
+def examinar_pista(pista, culpado):
+    if pista == "1":
+        return examinar_pegadas(culpado)
+    elif pista == "2":
+        return examinar_lustro(culpado)
+    elif pista == "3":
+        return examinar_colher(culpado)
+    elif pista == "4":
+        return examinar_vidro(culpado)
+    else:
+        return 0
+
+def examinar_pegadas(culpado):
+    imprimir_lentamente("Você examina as pegadas geladas no chão...")
+    if culpado["nivel_derretimento"] == "Rápido⚡":
+        imprimir_lentamente("As pegadas derreteram rápido.")
+        return 1
+    else:
+        imprimir_lentamente("As pegadas ainda estão bem definidas.")
+        return 2
+
+def examinar_lustro(culpado):
+    imprimir_lentamente("Você examina o recipiente de Lustro...")
+    if culpado["quantidade_lustro"] == "Alta⬆️":
+        imprimir_lentamente("Tem marcas de mãos pequenas.")
+        return 2
+    else:
+        imprimir_lentamente("Parece ter sido aberto à força.")
+        return 1
+
+def examinar_colher(culpado):
+    imprimir_lentamente("Você examina a colher metálica torta...")
+    if "Freezer 2" in culpado["freezer"]:
+        imprimir_lentamente("Tem resíduos do Freezer 2.")
+        return 2
+    else:
+        imprimir_lentamente("Não dá para determinar a origem dos resíduos.")
+        return 1
+
+def examinar_vidro(culpado):
+    imprimir_lentamente("Você examina a rachadura no vidro...")
+    if "fuga" in culpado["personalidade_oculta"].lower():
+        imprimir_lentamente("Foi feita de dentro para fora.")
+        return 2
+    else:
+        imprimir_lentamente("Não está claro se foi quebrado de dentro para fora.")
+        return 1
+
+def interrogar_suspeito(suspeito, culpado):
+    imprimir_lentamente(f"\nVocê interroga {suspeito['nome_sorvete']} ({suspeito['sabor_sorvete']})...")
+    
+    perguntas = [
+        "Onde você estava na noite do crime?",
+        "O que sabe sobre o Lustro?",
+        "Qual era sua relação com Chocolate?",
+        "O que acha que aconteceu com Gelatelli?"
+    ]
+    
     respostas = {
-        "Bauni🍦": "🍦 Bauni: \"Tão suave quanto meu gosto, sempre fiquei fora de confusão. Por que alguém suspeitaria de mim? Tudo que eu queria era continuar vivendo em paz, mas agora... Não sei mais o que pensar.\" 😢",
-        "Moranguinho🍓": "🍓 Moranguinho: \"Eu não faria mal a ninguém! Estava no fundo do freezer, como sempre... Por que todos desconfiam de mim? Talvez seja o medo de ser um sabor tão comum...\" 😰",
-        "Mentolado🍃🍫": "🍃🍫 Mentolado: \"Você realmente acha que eu, o mais frio e controlado de todos, teria algo a ver com isso? Interessante. Mas cuidado... O frio muitas vezes esconde verdades sombrias.\" 🧐",
-        "Nocci🌰": "🌰 Nocci: \"Humm... As pessoas tendem a subestimar o sabor das nozes, mas quem me conhece sabe que sou... Paciente. No entanto, uma coisa é certa, se eu quisesse, poderia esconder segredos muito bem.\" 🤔",
-        "Caramella🍯": "🍯 Caramella: \"Todos nós temos nossos segredos, mas alguns são mais doces do que outros. O Sr. Gelatelli sabia demais, e talvez tenha se envolvido com algo maior do que ele poderia controlar. Mas é claro... Eu jamais seria tão imprudente.\" 😏",
-        "Pistacho🌰": "🌰 Pistacho: \"Lustro... Eu entendo os riscos mais do que qualquer outro. Esse ingrediente não é apenas mágico... Ele é perigoso. Se mal utilizado, pode fazer qualquer um cometer atos impensáveis. Mas não fui eu...\" 😶",
-        "Limone🍋": "🍋 Limone: \"Ah, a liberdade... Sempre foi tudo que eu quis. Fugir dessa sorveteria e explorar o mundo lá fora. Mas matar? Isso seria extremo até para mim. No entanto... As circunstâncias nos mudam.\" 😓"
+        "Onde você estava na noite do crime?": {
+            "Bauni🍦": "Eu estava no meu freezer, como sempre. Não sou de me mover muito!",
+            "Moranguinho🍓": "Eu estava me divertindo, mas não sou de ficar presa a horários!",
+            "Mentolado🍃🍫": "Estava em silêncio, como sempre. O que mais poderia fazer?",
+            "Nocci🌰": "Refletindo sobre a vida e o significado do Lustro.",
+            "Caramella🍯": "Ah, querido, eu estava apenas esperando o momento certo para brilhar.",
+            "Pistacho🌰": "Estava em um experimento, tentando entender o Lustro melhor.",
+            "Limone🍋": "Eu estava me preparando para uma explosão de sabor, como sempre!"
+        },
+        "O que sabe sobre o Lustro?": {
+            "Bauni🍦": "Lustro é algo que confere poder, mas não sei muito além disso. É... perigoso.",
+            "Moranguinho🍓": "Ouvi rumores, mas não confio em ninguém aqui.",
+            "Mentolado🍃🍫": "O Lustro é um mistério, e eu prefiro não me envolver.",
+            "Nocci🌰": "O Lustro é fascinante, mas também perigoso. Conheço seus segredos.",
+            "Caramella🍯": "Ah, o Lustro... é uma delícia, mas tem suas armadilhas.",
+            "Pistacho🌰": "O Lustro é a chave para muitos segredos. Estou sempre estudando.",
+            "Limone🍋": "Lustro? É o que dá sabor à vida, mas também pode ser traiçoeiro."
+        },
+        "Qual era sua relação com Chocolate?": {
+            "Bauni🍦": "Chocolate sempre foi o favorito. Eu sempre estive à sombra dele.",
+            "Moranguinho🍓": "Ele era popular, mas eu não me importava. Eu sou única!",
+            "Mentolado🍃🍫": "Chocolate era um rival, mas eu preferia ficar na minha.",
+            "Nocci🌰": "Tínhamos uma relação de respeito, mas sempre havia competição.",
+            "Caramella🍯": "Ah, Chocolate... sempre tão doce e tão ingênuo.",
+            "Pistacho🌰": "Chocolate era um enigma, sempre intrigante.",
+            "Limone🍋": "Chocolate? Ele era bom, mas eu sou o verdadeiro sabor!"
+        },
+        "O que acha que aconteceu com Gelatelli?": {
+            "Bauni🍦": "Gelatelli era muito próximo do segredo do Lustro. Acho que ele sabia demais.",
+            "Moranguinho🍓": "Ele estava sempre no meio de tudo. Não me surpreenderia se soubesse algo.",
+            "Mentolado🍃🍫": "Gelatelli era um mistério, e seu destino é igualmente enigmático.",
+            "Nocci🌰": "Gelatelli era sábio, mas os segredos podem ser perigosos.",
+            "Caramella🍯": "Gelatelli provavelmente se meteu em algo que não deveria.",
+            "Pistacho🌰": "Ele estava sempre buscando conhecimento. Isso pode ter sido sua ruína.",
+            "Limone🍋": "Gelatelli? Ele era um jogador, e os jogadores às vezes perdem."
+        }
     }
 
-    print("\nVocê começa a interrogar os suspeitos. Cada um tem algo a dizer, mas será que todos estão dizendo a verdade?")
-    for sorvete in sorvetes:
-        nome = sorvete['nome_sorvete']
-        if nome == "Choco🍫":
-            print(f"\n🍫 {nome} não pode responder, pois está fora de cena.")
-        elif nome in respostas:
-            print(f"\n🍨 {nome} responde:")
-            print(respostas[nome])
-        else:
-            print(f"\n🍨 {nome} não tem nada a dizer.")
-        time.sleep(3)
-
-def investigar_cena_crime():
-    print("\n- A porta da cozinha range suavemente ao ser empurrada. O som parece o lamento de um espírito aprisionado, ecoando pela casa como um aviso. Você entra lentamente, e o ar, gelado e espesso, parece engolir seus pensamentos. O cheiro... algo ácido, algo doce, mas de um doce amargo, como o último suspiro de uma alma perdida.")
-    time.sleep(4)
-
-    print("\n- O ambiente está silencioso demais, como se o tempo tivesse parado ali, congelado. Cada respiração sua parece um som invasivo, quebrando o silêncio mortal que toma conta do lugar. A luz fraca que emana de uma lâmpada suja no teto não oferece consolo — ela apenas ilumina o caos que foi deixado para trás. O que aconteceu aqui? Por que Sr. Gelatelli e Choco tiveram que morrer? A resposta está em cada detalhe, esperando para ser descoberta...")
-    time.sleep(4)
-
-    print("\n- Ao olhar ao redor, a visão se torna turva, como se a própria realidade estivesse distorcida. Há algo de errado com cada canto, cada sombra. O ar gélido parece pulsar com uma energia invisível, uma força que você não consegue compreender. Mas sente. E ela te observa, te espera. O que o assassino deixou para trás? O que ele esqueceu?")
-    time.sleep(4)
-
-    mostrar_pistas()
-
-    print("\n- O silêncio, denso e opressor, torna-se ainda mais palpável à medida que você observa cada objeto com mais atenção. Uma sensação de incomodidade começa a crescer, como se algo estivesse se movendo nas sombras, observando suas ações. Você não está mais sozinho aqui. O ar pesado carrega consigo uma presença que se esconde, aguardando o momento certo para se revelar.")
-    time.sleep(4)
-
-    print("\n- O cheiro do Lustro, doce e misterioso, começa a se infiltrar mais fundo em sua mente. Cada pista que você observa parece ter sido deixada de propósito, como se estivesse sendo guiado para algo maior. Mas o que? O Lustro foi a chave que deu vida a esses sorvetes... mas até que ponto ele controla suas mentes? O que Gelatelli sabia? E por que o Chocolate foi silenciado tão rapidamente?")
-    time.sleep(4)
-
-    print("\n- O frio ao seu redor parece aumentar a cada passo, como se a própria casa estivesse se tornando um cadáver congelado. A atmosfera, carregada de segredos não ditos, começa a sufocar suas inspirações. Tudo ali parece ser um reflexo distorcido da realidade, como se as paredes estivessem atentas a cada movimento seu. Algo está errado, mas você não consegue identificar o quê. A resposta está ao seu alcance, mas ela não virá facilmente. A verdade... ou a mentira? A linha entre elas é tênue.")
-    time.sleep(4)
-
-    print("\n- O jogo é mais antigo do que você imagina. O Lustro, esse ingrediente mágico, pode estar manipulando você, os sorvetes, todos. Mas o que ele realmente quer? Quem realmente está no controle? Você sente como se estivesse se afundando em um pesadelo, onde nada é o que parece e onde qualquer passo errado pode te afundar ainda mais nas profundezas da mentira e do desespero.")
-    time.sleep(4)
-
-    print("\n- O perigo está mais perto do que você imagina. Cada respiração que você dá parece mais pesada, cada pensamento mais sombrio. Você sabe que está perto, mas está começando a questionar se quer mesmo saber a verdade. Algumas coisas, talvez, devam ficar enterradas no gelo. Você continua... ou se afasta do abismo que está prestes a engolir tudo?")
-    time.sleep(4)
-
-def acusar(suspeito, culpado):
+    for i, pergunta in enumerate(perguntas, 1):
+        print(f"{i}. {pergunta}")
+    
+    escolha = int(input("Escolha uma pergunta (digite o número): ")) - 1
+    pergunta_escolhida = perguntas[escolha]
+    resposta_escolhida = respostas[pergunta_escolhida][suspeito['nome_sorvete']]
+    
+    imprimir_lentamente(f"Você pergunta: {pergunta_escolhida}")
+    time.sleep(0.5)
+    imprimir_lentamente(f"O interrogado responde: {resposta_escolhida}")
+    
     if suspeito == culpado:
-        return (f"💥 O ar parece congelar por um instante. Você aponta para {suspeito}, e uma sensação pesada toma conta de você, como se o tempo parasse. "
-                f"Uma sombra se afasta das paredes e a verdade, até então escondida nas sombras, se revela. "
-                f"Você acertou! {suspeito} era o culpado o tempo todo... e a justiça foi feita. "
-                f"Mas será que a paz será alcançada? Ou isso é apenas o começo de um novo mistério? 🕯️")
+        return 3
     else:
-        return (f"❌ O ar se torna denso, e um calafrio percorre sua coluna. Você acusa {suspeito}, mas ao olhar nos olhos do verdadeiro culpado, "
-                f"uma estranha sensação de desconforto toma conta de você. Algo não está certo. O silêncio da sala cresce, como se as paredes estivessem "
-                f"rindo de sua acusação falha. {suspeito} não era o culpado... Ou será que ele ainda guarda segredos mais profundos? O jogo continua... 🕳️")
+        return 1
 
-if __name__ == "__main__":
-    caminho_csv = "sorvetes.csv"
-    sorvetes = carregar_sorvetes(caminho_csv)
-    
-    investigar_cena_crime()
-    
-    mostrar_pistas()
-    
-    interrogar_suspeitos(sorvetes)
+def revelar_culpado(acusado, culpado, pontos):
+    print("\n" + "="*50)
+    print("REVELAÇÃO FINAL".center(50))
+    print("="*50 + "\n")
+
+    if acusado == culpado:
+        imprimir_lentamente(f"Você acusa {acusado['nome_sorvete']}...")
+        imprimir_lentamente("Ele tenta fugir, mas é tarde demais!")
+        imprimir_lentamente("O assassino confessa!")
+        imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
+        imprimir_lentamente(f"Pontuação final: {pontos} pontos.")
+    else:
+        imprimir_lentamente(f"Você acusa {acusado['nome_sorvete']}...")
+        imprimir_lentamente("Mas o verdadeiro culpado escapa!")
+        imprimir_lentamente(f"O assassino era {culpado['nome_sorvete']} ({culpado['sabor_sorvete']}).")
+        imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
+        imprimir_lentamente(f"Pontuação final: {pontos - 5} pontos.")
+
+    print("\nFIM DE JOGO!")
