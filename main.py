@@ -1,5 +1,6 @@
 from lib import (
     carregar_sorvetes,
+    valores_perigosos,
     exibir_introducao,
     exibir_cena_crime,
     interrogar_suspeito,
@@ -41,7 +42,8 @@ def main():
         print("2. Interrogar um suspeito 🗣️")
         print("3. Fazer uma acusação ⚖️")
         print("4. Acessar informações de um sorvete 📄")
-        print("5. Sair do jogo ❌")
+        print("5. Acessar tabela de valores perigosos 💣")
+        print("6. Sair do jogo ❌")
 
         opcao = input("> ")
 
@@ -140,7 +142,13 @@ def main():
             else:
                 print("\nVocê já acessou as informações dos sorvetes 3 vezes. Não pode acessar mais.")
 
+
         elif opcao == "5":
+            print("\n 🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
+            valores_perigosos()
+
+
+        elif opcao == "6":
             print("\nObrigado por jogar Crimelatto: O Enigma dos Sabores! 🍦🔎")
             break
 

@@ -1,11 +1,21 @@
 import time
 import csv
+from tabulate import tabulate
 
 def imprimir_lentamente(texto, velocidade=0.03):
     for caractere in texto:
         print(caractere, end='', flush=True)
         time.sleep(velocidade)
     print()
+
+dados = [
+    ["Consciência", "Acima de 50%"],
+    ["Quantidade de lustro", "Média - Alta"],
+    ["Nível de derretimento", "Médio - Rápido"]
+]
+
+def valores_perigosos():
+    print(tabulate(dados, headers=["Parametro", "Valor"], tablefmt="grid"))
 
 def carregar_sorvetes():
     sorvetes = []
