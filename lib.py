@@ -127,51 +127,41 @@ def exibir_cena_crime():
 
 def examinar_pista(pista, culpado):
     if pista == "1":
-        return examinar_pegadas(culpado)
+        examinar_pegadas(culpado)
     elif pista == "2":
-        return examinar_lustro(culpado)
+        examinar_lustro(culpado)
     elif pista == "3":
-        return examinar_colher(culpado)
+        examinar_colher(culpado)
     elif pista == "4":
-        return examinar_vidro(culpado)
-    else:
-        return 0
+        examinar_vidro(culpado)
 
 def examinar_pegadas(culpado):
     imprimir_lentamente("Você examina as pegadas geladas no chão...")
     if culpado["nivel_derretimento"] == "Rápido⚡":
         imprimir_lentamente("As pegadas derreteram rápido.")
-        return 1
     else:
         imprimir_lentamente("As pegadas ainda estão bem definidas.")
-        return 2
 
 def examinar_lustro(culpado):
     imprimir_lentamente("Você examina o recipiente de Lustro...")
     if culpado["quantidade_lustro"] == "Alta⬆️":
         imprimir_lentamente("Tem marcas de mãos pequenas.")
-        return 2
     else:
         imprimir_lentamente("Parece ter sido aberto à força.")
-        return 1
 
 def examinar_colher(culpado):
     imprimir_lentamente("Você examina a colher metálica torta...")
     if "Freezer 2" in culpado["freezer"]:
         imprimir_lentamente("Tem resíduos do Freezer 2.")
-        return 2
     else:
         imprimir_lentamente("Não dá para determinar a origem dos resíduos.")
-        return 1
 
 def examinar_vidro(culpado):
     imprimir_lentamente("Você examina a rachadura no vidro...")
     if "fuga" in culpado["personalidade_oculta"].lower():
         imprimir_lentamente("Foi feita de dentro para fora.")
-        return 2
     else:
         imprimir_lentamente("Não está claro se foi quebrado de dentro para fora.")
-        return 1
 
 def interrogar_suspeito(suspeito, culpado):
     imprimir_lentamente(f"\nVocê interroga {suspeito['nome_sorvete']} ({suspeito['sabor_sorvete']})...")
@@ -232,13 +222,8 @@ def interrogar_suspeito(suspeito, culpado):
     imprimir_lentamente(f"Você pergunta: {pergunta_escolhida}")
     time.sleep(0.5)
     imprimir_lentamente(f"O interrogado responde: {resposta_escolhida}")
-    
-    if suspeito == culpado:
-        return 3
-    else:
-        return 1
 
-def revelar_culpado(acusado, culpado, pontos):
+def revelar_culpado(acusado, culpado):
     print("\n" + "="*50)
     print("REVELAÇÃO FINAL".center(50))
     print("="*50 + "\n")
@@ -248,12 +233,10 @@ def revelar_culpado(acusado, culpado, pontos):
         imprimir_lentamente("Ele tenta fugir, mas é tarde demais!")
         imprimir_lentamente("O assassino confessa!")
         imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
-        imprimir_lentamente(f"Pontuação final: {pontos} pontos.")
     else:
         imprimir_lentamente(f"Você acusa {acusado['nome_sorvete']}...")
         imprimir_lentamente("Mas o verdadeiro culpado escapa!")
         imprimir_lentamente(f"O assassino era {culpado['nome_sorvete']} ({culpado['sabor_sorvete']}).")
         imprimir_lentamente(f"Motivo: {culpado['personalidade_oculta']}")
-        imprimir_lentamente(f"Pontuação final: {pontos - 5} pontos.")
 
     print("\nFIM DE JOGO!")

@@ -21,7 +21,6 @@ def main():
     exibir_introducao()
     exibir_cena_crime()
 
-    pontos_investigacao = 0
     pistas_examinadas = []
     suspeitos_interrogados = []
     consultas_sorvetes = 0
@@ -48,7 +47,7 @@ def main():
 
             if pista_escolhida in ["1", "2", "3", "4"]:
                 if pista_escolhida not in pistas_examinadas:
-                    pontos_investigacao += examinar_pista(pista_escolhida, culpado)
+                    examinar_pista(pista_escolhida, culpado)
                     pistas_examinadas.append(pista_escolhida)
                 else:
                     print("\nVocê já examinou essa pista! Escolha outra.")
@@ -67,7 +66,7 @@ def main():
                 if 0 <= indice < len(sorvetes_suspeitos):
                     suspeito = sorvetes_suspeitos[indice]
                     if suspeito["nome_sorvete"] not in suspeitos_interrogados:
-                        pontos_investigacao += interrogar_suspeito(suspeito, culpado)
+                        interrogar_suspeito(suspeito, culpado)
                         suspeitos_interrogados.append(suspeito["nome_sorvete"])
                     else:
                         print("\nVocê já interrogou esse suspeito! Escolha outro.")
@@ -91,7 +90,7 @@ def main():
                 indice = int(escolha) - 1
                 if 0 <= indice < len(sorvetes_suspeitos):
                     acusado = sorvetes_suspeitos[indice]
-                    revelar_culpado(acusado, culpado, pontos_investigacao)
+                    revelar_culpado(acusado, culpado)
                     break
                 else:
                     print("\nNúmero inválido. Escolha um dos suspeitos listados.")
