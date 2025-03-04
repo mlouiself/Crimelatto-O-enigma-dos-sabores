@@ -16,7 +16,6 @@ def main():
         if sorvete["nome_sorvete"] != "Choco":
             sorvetes_suspeitos.append(sorvete)
 
-    # Definindo o Mentolado como culpado
     culpado = None
     for sorvete in sorvetes_suspeitos:
         if sorvete["nome_sorvete"] == "Mentolado":
@@ -33,7 +32,7 @@ def main():
     pistas_examinadas = []
     suspeitos_interrogados = []
     consultas_sorvetes = 0
-    acusacoes_restantes = 3  # Limite de acusações
+    acusacoes_restantes = 3
 
     while True:
         print("\n" + "=" * 50)
@@ -48,7 +47,7 @@ def main():
         opcao = input("> ")
 
         if opcao == "1":
-            if len(pistas_examinadas) >= 3:  # Limite de 3 pistas
+            if len(pistas_examinadas) >= 3:
                 print("\nVocê já examinou o número máximo de pistas!")
                 continue
 
@@ -91,7 +90,7 @@ def main():
                 print("\nEntrada inválida. Digite um número.")
 
         elif opcao == "3":
-            if acusacoes_restantes <= 0:  # Limite de acusações
+            if acusacoes_restantes <= 0:
                 print("\nVocê já fez o número máximo de acusações!")
                 continue
 
@@ -106,9 +105,9 @@ def main():
                 if 0 <= indice < len(sorvetes_suspeitos):
                     acusado = sorvetes_suspeitos[indice]
                     revelar_culpado(acusado, culpado)
-                    acusacoes_restantes -= 1  # Reduz o número de acusações restantes
+                    acusacoes_restantes -= 1
                     if acusado == culpado:
-                        break  # Fim do jogo se o jogador acertar
+                        break
                 else:
                     print("\nNúmero inválido. Escolha um dos suspeitos listados.")
             else:
@@ -142,11 +141,9 @@ def main():
             else:
                 print("\nVocê já acessou as informações dos sorvetes 3 vezes. Não pode acessar mais.")
 
-
         elif opcao == "5":
             print("\n 🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
             valores_perigosos()
-
 
         elif opcao == "6":
             print("\nObrigado por jogar Crimelatto: O Enigma dos Sabores! 🍦🔎")

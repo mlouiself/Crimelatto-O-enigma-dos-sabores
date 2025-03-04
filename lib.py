@@ -232,20 +232,22 @@ def revelar_culpado(acusado, culpado):
     print("="*50 + "\n")
 
     if acusado == culpado:
-        imprimir_lentamente(f"Você aponta firmemente para {acusado['nome_sorvete']}...")
-        imprimir_lentamente("Um silêncio gelado toma conta da sala.")
-        imprimir_lentamente(f"{acusado['nome_sorvete']} hesita, mas logo sua expressão muda.")
-        imprimir_lentamente("Ele tenta fugir, mas é impedido!")
-        imprimir_lentamente("Você soluciona o mistério e traz justiça à Doce Latto!")
-        print("\n✨ PARABÉNS! VOCÊ DESVENDOU O CRIME! ✨")
+        imprimir_lentamente(f"Você aponta, com uma calma imperturbável, para {acusado['nome_sorvete']}...")
+        imprimir_lentamente("O ar na sala congela. Um silêncio profundo e denso toma conta do ambiente.")
+        imprimir_lentamente(f"{acusado['nome_sorvete']} vacila, seus olhos, antes tranquilos, agora cheios de incerteza.")
+        imprimir_lentamente("Em um movimento desesperado, ele tenta fugir, mas algo o detém... A justiça não pode ser impedida.")
+        imprimir_lentamente("O mistério se dissolve diante de você, como neve ao sol. Você trouxe a verdade à luz de Doce Latto!")
+        print("\n✨ O ENIGMA FOI DESVENDADO. A JUSTIÇA TRIUNFOU! ✨")
+
     else:
-        imprimir_lentamente(f"Você aponta para {acusado['nome_sorvete']}, confiante em sua acusação...")
-        imprimir_lentamente("Mas algo parece errado.")
-        imprimir_lentamente("De repente, uma risada ecoa pela sala.")
-        imprimir_lentamente(f"{culpado['nome_sorvete']} surge das sombras, com um sorriso maligno.")
-        imprimir_lentamente(f"«Você errou, investigador. O verdadeiro culpado sou eu!»")
-        imprimir_lentamente("O assassino escapa, deixando para trás apenas um rastro de gelo derretido.")
-        print("\n💀 VOCÊ ERROU! O VERDADEIRO CULPADO ESCAPOU! 💀")
+        imprimir_lentamente(f"Você, confiante, aponta para {acusado['nome_sorvete']}, acreditando que a verdade está ao seu alcance...")
+        imprimir_lentamente("Mas algo no ar faz o sangue gelar. Uma sensação de incerteza rasteja por sua espinha.")
+        imprimir_lentamente("De repente, uma risada baixa e maquiavélica preenche o espaço. O eco da risada é como o vento em uma noite sombria.")
+        imprimir_lentamente(f"{culpado['nome_sorvete']} emerge das sombras, seu sorriso sombrio refletindo uma vitória cruel.")
+        imprimir_lentamente(f"«Você falhou, investigador... O verdadeiro culpado sou eu!»")
+        imprimir_lentamente("Com uma risada final, o assassino desaparece na escuridão, deixando para trás apenas um rastro de gelo derretido.")
+        print("\n💀 O ERRO FOI SEU! O CULPADO ESCAPOU, E O CRIME PERMANECE NO AR... 💀")
+
 
     print("\n" + "="*50)
     print("FIM DE JOGO!".center(50))
