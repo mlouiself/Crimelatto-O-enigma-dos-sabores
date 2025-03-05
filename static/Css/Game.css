@@ -67,23 +67,3 @@ footer {
     max-width: 800px;
     margin: auto;
 }
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-}
-
-.footer-links li {
-    display: inline;
-    margin: 0 10px;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: #A7d3f2;
-}
