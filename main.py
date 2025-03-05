@@ -23,7 +23,7 @@ def main():
             break
 
     if not culpado:
-        print("Erro: O suspeito Mentolado não foi encontrado na lista de sorvetes.")
+        print("❌ Erro: O suspeito Mentolado não foi encontrado na lista de sorvetes. ❌")
         return
 
     exibir_introducao()
@@ -35,7 +35,7 @@ def main():
 
     while True:
         print("\n" + "=" * 50)
-        print("O que você deseja fazer?")
+        print("O que você deseja fazer? 🤔")
         print("1. Examinar uma pista 🔍")
         print("2. Interrogar um suspeito 🗣️")
         print("3. Fazer uma acusação ⚖️")
@@ -47,14 +47,14 @@ def main():
 
         if opcao == "1":
             if len(pistas_examinadas) >= 3:
-                print("\nVocê já examinou o número máximo de pistas!")
+                print("\n🚫 Você já examinou o número máximo de pistas! 🚫")
                 continue
 
-            print("\nEscolha uma pista para examinar:")
-            print("1. Pegadas geladas")
-            print("2. Recipiente de Lustro derramado")
-            print("3. Colher metálica torta")
-            print("4. Rachadura no vidro do freezer")
+            print("\nEscolha uma pista para examinar: 🔎")
+            print("1. Pegadas geladas ❄️")
+            print("2. Recipiente de Lustro derramado 🍦")
+            print("3. Colher metálica torta 🥄")
+            print("4. Rachadura no vidro do freezer 🔪")
 
             pista_escolhida = input("> ")
 
@@ -63,12 +63,12 @@ def main():
                     examinar_pista(pista_escolhida, culpado)
                     pistas_examinadas.append(pista_escolhida)
                 else:
-                    print("\nVocê já examinou essa pista! Escolha outra.")
+                    print("\n🛑 Você já examinou essa pista! Escolha outra. 🛑")
             else:
-                print("\nOpção inválida. Tente novamente.")
+                print("\n⚠️ Opção inválida. Tente novamente. ⚠️")
 
         elif opcao == "2":
-            print("\nEscolha um suspeito para interrogar:")
+            print("\nEscolha um suspeito para interrogar: 🕵️‍♂️")
             for i, sorvete in enumerate(sorvetes_suspeitos, 1):
                 print(f"{i}. {sorvete['nome_sorvete']} ({sorvete['sabor_sorvete']})")
 
@@ -82,14 +82,14 @@ def main():
                         interrogar_suspeito(suspeito, culpado)
                         suspeitos_interrogados.append(suspeito["nome_sorvete"])
                     else:
-                        print("\nVocê já interrogou esse suspeito! Escolha outro.")
+                        print("\n🛑 Você já interrogou esse suspeito! Escolha outro. 🛑")
                 else:
-                    print("\nNúmero inválido. Escolha um dos suspeitos listados.")
+                    print("\n❌ Número inválido. Escolha um dos suspeitos listados. ❌")
             else:
-                print("\nEntrada inválida. Digite um número.")
+                print("\n⚠️ Entrada inválida. Digite um número. ⚠️")
 
         elif opcao == "3":
-            print("\nQuem você acha que é o culpado?")
+            print("\nQuem você acha que é o culpado? ⚖️")
             for i, sorvete in enumerate(sorvetes_suspeitos, 1):
                 print(f"{i}. {sorvete['nome_sorvete']} ({sorvete['sabor_sorvete']})")
 
@@ -103,13 +103,13 @@ def main():
                     if acusado == culpado:
                         break
                 else:
-                    print("\nNúmero inválido. Escolha um dos suspeitos listados.")
+                    print("\n❌ Número inválido. Escolha um dos suspeitos listados. ❌")
             else:
-                print("\nEntrada inválida. Digite um número.")
+                print("\n⚠️ Entrada inválida. Digite um número. ⚠️")
 
         elif opcao == "4":
             if consultas_sorvetes < 3:
-                print("\nEscolha um sorvete para acessar as informações:")
+                print("\nEscolha um sorvete para acessar as informações: 🍨")
                 for i, sorvete in enumerate(sorvetes_suspeitos, 1):
                     print(f"{i}. {sorvete['nome_sorvete']} ({sorvete['sabor_sorvete']})")
 
@@ -119,7 +119,7 @@ def main():
                     indice = int(escolha) - 1
                     if 0 <= indice < len(sorvetes_suspeitos):
                         sorvete = sorvetes_suspeitos[indice]
-                        print("\nInformações do sorvete:")
+                        print("\nInformações do sorvete: 📄")
                         print(f"Nome: {sorvete['nome_sorvete']}")
                         print(f"Aparência: {sorvete['aparencia']}")
                         print(f"Consciência: {sorvete['consciencia']}")
@@ -129,14 +129,14 @@ def main():
                         print(f"Freezer: {sorvete['freezer']}")
                         consultas_sorvetes += 1
                     else:
-                        print("\nNúmero inválido. Escolha um dos suspeitos listados.")
+                        print("\n❌ Número inválido. Escolha um dos suspeitos listados. ❌")
                 else:
-                    print("\nEntrada inválida. Digite um número.")
+                    print("\n⚠️ Entrada inválida. Digite um número. ⚠️")
             else:
-                print("\nVocê já acessou as informações dos sorvetes 3 vezes. Não pode acessar mais.")
+                print("\n🚫 Você já acessou as informações dos sorvetes 3 vezes. Não pode acessar mais. 🚫")
 
         elif opcao == "5":
-            print("\n 🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
+            print("\n🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
             valores_perigosos()
 
         elif opcao == "6":
@@ -144,7 +144,7 @@ def main():
             break
 
         else:
-            print("\nOpção inválida. Tente novamente.")
+            print("\n⚠️ Opção inválida. Tente novamente. ⚠️")
 
 if __name__ == "__main__":
     main()
