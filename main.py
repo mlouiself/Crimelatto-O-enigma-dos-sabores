@@ -1,22 +1,30 @@
 from lib import (
     carregar_sorvetes,
+    valores_perigosos,
     exibir_introducao,
     exibir_cena_crime,
     interrogar_suspeito,
     examinar_pista,
     revelar_culpado
 )
-import random
 
 def main():
     sorvetes = carregar_sorvetes()
     sorvetes_suspeitos = []
 
     for sorvete in sorvetes:
-        if sorvete["nome_sorvete"] != "Choco🍫":
+        if sorvete["nome_sorvete"] != "Choco":
             sorvetes_suspeitos.append(sorvete)
 
-    culpado = random.choice(sorvetes_suspeitos)
+    culpado = None
+    for sorvete in sorvetes_suspeitos:
+        if sorvete["nome_sorvete"] == "Mentolado":
+            culpado = sorvete
+            break
+
+    if not culpado:
+        print("Erro: O suspeito Mentolado não foi encontrado na lista de sorvetes.")
+        return
 
     exibir_introducao()
     exibir_cena_crime()
@@ -24,6 +32,7 @@ def main():
     pistas_examinadas = []
     suspeitos_interrogados = []
     consultas_sorvetes = 0
+    acusacoes_restantes = 3
 
     while True:
         print("\n" + "=" * 50)
@@ -32,11 +41,16 @@ def main():
         print("2. Interrogar um suspeito 🗣️")
         print("3. Fazer uma acusação ⚖️")
         print("4. Acessar informações de um sorvete 📄")
-        print("5. Sair do jogo ❌")
+        print("5. Acessar tabela de valores perigosos 💣")
+        print("6. Sair do jogo ❌")
 
         opcao = input("> ")
 
         if opcao == "1":
+            if len(pistas_examinadas) >= 3:
+                print("\nVocê já examinou o número máximo de pistas!")
+                continue
+
             print("\nEscolha uma pista para examinar:")
             print("1. Pegadas geladas")
             print("2. Recipiente de Lustro derramado")
@@ -76,8 +90,8 @@ def main():
                 print("\nEntrada inválida. Digite um número.")
 
         elif opcao == "3":
-            if len(pistas_examinadas) < 2 or len(suspeitos_interrogados) < 2:
-                print("\nVocê ainda não coletou informações suficientes! Continue investigando.")
+            if acusacoes_restantes <= 0:
+                print("\nVocê já fez o número máximo de acusações!")
                 continue
 
             print("\nQuem você acha que é o culpado?")
@@ -91,7 +105,9 @@ def main():
                 if 0 <= indice < len(sorvetes_suspeitos):
                     acusado = sorvetes_suspeitos[indice]
                     revelar_culpado(acusado, culpado)
-                    break
+                    acusacoes_restantes -= 1
+                    if acusado == culpado:
+                        break
                 else:
                     print("\nNúmero inválido. Escolha um dos suspeitos listados.")
             else:
@@ -126,6 +142,10 @@ def main():
                 print("\nVocê já acessou as informações dos sorvetes 3 vezes. Não pode acessar mais.")
 
         elif opcao == "5":
+            print("\n 🚨 ALERTA! Os seguintes valores ultrapassam os limites seguros. Proceda com cautela... 🚨")
+            valores_perigosos()
+
+        elif opcao == "6":
             print("\nObrigado por jogar Crimelatto: O Enigma dos Sabores! 🍦🔎")
             break
 
