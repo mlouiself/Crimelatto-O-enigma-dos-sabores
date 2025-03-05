@@ -32,7 +32,6 @@ def main():
     pistas_examinadas = []
     suspeitos_interrogados = []
     consultas_sorvetes = 0
-    acusacoes_restantes = 3
 
     while True:
         print("\n" + "=" * 50)
@@ -90,10 +89,6 @@ def main():
                 print("\nEntrada inválida. Digite um número.")
 
         elif opcao == "3":
-            if acusacoes_restantes <= 0:
-                print("\nVocê já fez o número máximo de acusações!")
-                continue
-
             print("\nQuem você acha que é o culpado?")
             for i, sorvete in enumerate(sorvetes_suspeitos, 1):
                 print(f"{i}. {sorvete['nome_sorvete']} ({sorvete['sabor_sorvete']})")

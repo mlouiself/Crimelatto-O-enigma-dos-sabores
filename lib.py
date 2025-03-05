@@ -255,3 +255,4 @@ def revelar_culpado(acusado, culpado):
         print("\n" + "="*50)
         print("FIM DE JOGO!".center(50))
         print("="*50)
+        exit()
