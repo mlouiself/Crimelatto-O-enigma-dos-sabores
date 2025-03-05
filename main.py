@@ -100,7 +100,6 @@ def main():
                 if 0 <= indice < len(sorvetes_suspeitos):
                     acusado = sorvetes_suspeitos[indice]
                     revelar_culpado(acusado, culpado)
-                    acusacoes_restantes -= 1
                     if acusado == culpado:
                         break
                 else:
