@@ -166,7 +166,7 @@ def examinar_vidro(culpado):
     else:
         imprimir_lentamente("Não está claro se foi quebrado de dentro para fora. 🧐")
 
-def interrogar_suspeito(suspeito, culpado):
+def interrogar_suspeito(suspeito):
     imprimir_lentamente(f"\nVocê interroga {suspeito['nome_sorvete']} ({suspeito['sabor_sorvete']})... 🍦")
     
     perguntas = [
